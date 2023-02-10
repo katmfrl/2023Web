@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* reset */
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* li{list-style:none;} 나는 리스트 스타일을 쓰지 않겠다 */
+        li {
+            list-style: none;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* clear: both는 float를 해제하기 위해서 인라인을 블록단위로 바꾸기위해서*/
+
+        .wrap {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: skyblue;
+        }
+
+        .wrap li {
+            float: left;
+            width: 20%;
+            text-align: center;
+            line-height: 50px;
+            /* line-height 글자와 글사이의 줄간격을 맞추는 명령어 */
+            /* li 자식으로 들어가 있는 글자를 가운데로 정렬할 때는 center */
+        }
+
+        /* .wrap ul::after{content: "";display: block;clear:both} */
+
+        .visual {
+            height: 500px;
+            background-color: pink;
+        }
+
+        .bg {
+            background-color: blue;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="wrap">
+            <ul class="clearfix">
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+                <li>menu4</li>
+                <li>menu5</li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="visual"></div>
+</body>
+
+</html>

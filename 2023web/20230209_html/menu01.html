@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        a:link,
+        a:visited{text-decoration: none;color:black}
+
+        div.wrap{
+            width: 500px;
+            /* height: 500px; */
+            background-color: blanchedalmond;
+            /* margin-left : auto;
+            margin-right : auto; */
+            margin: 0 auto;
+        }
+        div.wrap>div{
+            width: 200px;
+            height: 200px;
+        }
+        div.box1{
+            background-color: red;
+            float: left;
+        }
+        div.box2{
+            background-color: blue;
+            float: right;
+        }
+        div.clear{
+            width: 100% !important;
+            /* 태그 뒤에 !important를 쓰면 굉장히 강해짐 */
+            clear:both;
+            background-color: gray;
+            /* clear는 float을 해제시켜 주는 명령어 */
+            
+        }
+        .wrap:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+            
+    </style>
+</head>
+<body>
+    <div class="wrap clearfix">
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="clear"></div>
+    </div>
+</body>
+</html>
