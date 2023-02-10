@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+/* init  */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+.clearfix::after{
+    content: "";display: block;clear: both;
+}
+li{
+    list-style: none;
+}
+a:link,a:visited{text-decoration: none;color:black}
+
+/* header  */
+#hd{
+    width: 1000px;
+    margin: 0 auto;
+    background-color: pink;
+}
+#hd h1{
+    width: 100px;
+    background-color: skyblue;
+    margin: 0 auto;
+    text-align: center;
+}
+#hd h1 a{
+    background-color: blue;
+    /* width: 100px; */
+    display: block;
+    /* 블록단위는 부모의 크기에 맞춘다 블록단위로바뀌면 width 필요없음*/
+    /* text-align: initial; */
+}
+
+.menu li{
+    float: left;
+    width: 20%;
+    border-right: 1px solid black;
+
+}
+/* .menu li:first-child{border-left: 1px solid red;} */
+
+.menu li:hover{
+    background-color: aqua;
+}
+
+.menu li a {
+    display: block;
+    text-align: center;
+    line-height: 50px;
+}
+
+.menu li a:hover{
+    background-color: violet;
+}

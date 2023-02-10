@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+/* init  */
+
+*{margin: 0;padding: 0; box-sizing: border-box;}
+.clearfix:after{
+    content:"";display: block;clear: both;
+}
+li{
+    list-style: none;
+}
+a:link,a:visited{
+    text-decoration: none;color:black;
+}
+
+/* header  */
+
+#hd {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: pink;
+}
+
+#hd h1{
+    width: 100px;
+    background-color: skyblue;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#hd h1 a{
+    background-color: skyblue;
+    display: block;
+}
+
+.menu li{
+    float: left;
+    width: 20%;
+}
+.menu li:hover{
+    background-color: aqua;
+}
+.menu li a{
+    text-align: center;
+    display: block;
+    line-height: 50px;
+}
