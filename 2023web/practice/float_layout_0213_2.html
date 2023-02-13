@@ -28,6 +28,7 @@
         .wrap {
             width: 1000px;
             margin: 0 auto;
+            border: 1px solid black;
             }
 
         /* header  */
@@ -80,12 +81,67 @@
 
         .container{
             width: 1000px;
+            padding: 5px;
+            border: 1px solid black;
 
         }
 
-        .container .logo2{
+        .container .nt,
+        .container .gal,
+        .container .pop{
+            height: 150px;
+            float:left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container .nt{
+            width: 33.3%;
+            background-color: beige;
+            text-align: center;
+        }
+        .container .gal{
+            width: 33.3%;
+            background-color: orangered;
+            text-align: center;
+        }
+        .container .pop{
+            width: 33.3%;
+            background-color: sienna;
+            text-align: center;
+        }
+
+        .ft{
+            width: 1000px;
+            padding: 5px auto;
+            border: 1px solid black;
+        }
+
+        .ft .logo2,
+        .ft .cr,
+        .ft .sns{
+            height: 50px;
+            width: 33.3%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ft .logo2{
             float: left;
+            background-color: royalblue;          
         }
+        .ft .cr{
+            float:left;
+            background-color:skyblue;
+        }
+        .ft .sns{
+            float: left;
+            background-color: lavender;
+        }
+
+        
 
     </style>
 </head>
@@ -105,12 +161,12 @@
             </nav>
         </header>
         <div class="visual">visual</div>
-        <div class="container">
+        <div class="container clearfix">
             <div class="nt">notice</div>
             <div class="gal">gallay</div>
             <div class="pop">popup</div>
         </div>
-        <footer id="ft">
+        <footer class="ft clearfix">
             <div class="logo2">logo</div>
             <div class="cr">copyright</div>
             <div class="sns">sns</div>
