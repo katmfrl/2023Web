@@ -1,0 +1,53 @@
+@charset "utf-8";
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 14px; background: #FFF;
+}
+
+/* reset  */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+li{list-style: none;}
+a:link,a:visited{text-decoration: none; color :#888;}
+.clearfix:after{content:""; display: block;clear: both;}
+
+.container{width: 980px; margin: 0 auto;}
+
+/* header  */
+.top{border-bottom: 1px solid #E3D9D9; margin-bottom: 10px;}
+.submenu{float: right; height: 26px; _background: skyblue;}
+/* _를 붙이면 주석과 비슷함 코드를 읽지않음 */
+.submenu li {float: left;}
+.submenu li a{
+    display: block;
+    /* height: 26px;
+    background: pink; */
+    font-size: 12px;
+    padding: 0 10px;
+    line-height: 26px;
+    position: relative;
+    }
+
+    /* after는 인라인 태그  */
+.submenu li a:after{ 
+    content: ""; display: block; height: 10px;width: 1px;background: #888;
+    position: absolute; left: 0;top: 10px;
+    
+    
+}
+
+.submenu li:first-child a:after{
+    display: none;
+ } 
+
+h1.logo{width: 200px;height: 49px;margin: 0 auto; margin-bottom: 10px;}
+h1 lmg{display: block;}
+
+#hd .bottom{background: #1C5DA3;}
+#hd .menu li {float: left; width: calc( 100% / 6 );
+border-right: 1px solid #336EAC;
+}
+#hd .menu li:first-child {border-left: 1px solid #336EAC;}
+#hd .menu li a {
+    display: block;height: 44px;font-size: 16px; color:#fff;
+    text-align: center; line-height: 44px; font-weight: 500; letter-spacing: -0.8px;
+}
