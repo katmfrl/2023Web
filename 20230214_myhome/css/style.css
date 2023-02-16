@@ -168,3 +168,47 @@ border-right: 1px solid #336EAC;
 .con p {color:#888;}
 
 /* footer  */
+
+/* .ftWrap {
+    float: left;
+    margin-top: 10px;
+    height: 43px;
+} */
+
+#ft {
+    clear:both;
+    padding: 50px 0px;
+}
+
+.ftWrap{background-color: #4d4d4d;}
+
+.ftWrap li {
+    float: left;
+    margin-right: 15px;
+    height: 43px;
+    line-height: 43px;
+    /* background-color: #fff; */
+}
+
+.ftWrap li a{
+    display: block;
+    color :#ccc;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+
+}
+.ftWrap li a:after{
+    content: ""; display: block;height: 9px;width: 1px;background: #888;
+    position: absolute; left:-7px; top:17px
+}
+
+.ftWrap li:first-child a:after{
+    display: none;
+}
+
+.ftmenu{
+    /* background: #000; */
+}
+
+

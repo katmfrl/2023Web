@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background: #BBB;}
+        *{margin: 0;padding: 0;}
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .box1{
+            background: red;
+            position: relative;
+            left: 10px;top: 10px;
+            
+        }
+        .box2{
+            background: blue;
+            position: absolute;
+            left: 20px;
+            top: 50px;
+        }
+        /* 포지션이 없으면 밑에 내려가게됨  */
+        /* top값이 없으니 밑으로 내려가게 된다  */
+        /* position: absolute; <- 떠다니는 블럭  */
+        .box3{
+            background: yellow;
+            position: relative;
+            top: 10px; left: 20px;
+            z-index: 1;
+        }
+        .box4{
+            background: violet;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+</html>
