@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="js/script.js"></script> -->
+    <style>
+        span.name{color:blue;font-weight: bold;} 
+    </style>
+    <script>
+        document.write("");
+        console.log("console");
+        // alert("경고창")
+
+        let first = "권";
+        const name = "슬기";
+
+        //const는 변수가 아니라 상수라서 변경이 불가능함. let은 가능 
+        //js는 오토매틱 java는 수동
+
+        // 태그는 문자기 때문에 무조건 따옴표 안에 들어가있어야한다. 
+        document.write("나는 <span class='name'>" + first + name+ "</span>입니다<br>")
+
+        let num = 1;
+        // 1은 데이터이고 num은 데이터를 담는 박스임 
+        document.write(++num +"<br>") 
+        //++하면 바로 여기서 계산되는게 아니라 다음에 불러왔을때 계산이 됨
+        //그래서 밑에서 num을 불러왔을 때 계산이되서 2가 나온거임.
+        //앞에다가 ++를 쓰면 계산된채로 나옴. 뒤에쓰면 다시 불러왔을 때 앞에 쓰면 계산된채로 출력이 되는 걸 기억하자.
+        document.write(num +"<br>")
+        document.write(num++ +"<br>")
+
+        //i는 0이고 i가 0보다 작을 시 1씩 증가시켜라
+
+        // for 반복문 
+        for(let i=0; i<10; ){
+            document.write(i)
+        }
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

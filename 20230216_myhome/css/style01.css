@@ -11,6 +11,8 @@ a:link,a:visited{text-decoration: none; color :#888;}
 .clearfix:after{content:""; display: block;clear: both;}
 h3{font-size: 18px;letter-spacing: -1px;} /*나는 h3 태그를 쓰면 이렇게 지정됐으면 좋겠어.*/
 
+
+
 .container{width: 980px; margin: 0 auto;}
 
 /* header  */
@@ -110,10 +112,10 @@ border-right: 1px solid #336EAC;
 
 
 /* job  */
-
+.jobWrap{margin-bottom: 25px;}
 .jobWrap div.jobItem {
     float: left;
-    width : calc( ( 980px - 50px ) / 3 );
+    width : calc( ( 100% - 50px ) / 3 );
     margin-right: 25px;
 }
 
@@ -124,7 +126,6 @@ border-right: 1px solid #336EAC;
     padding: 20px 15px;
     border: 1px solid #DDD;
     border-top: 0 none; /* 사방에 선을 긋는데 top만 선을 안쓰겠다는 뜻  */
-    margin-bottom: 20px;
 }
 
 .jobWrap h3{margin-bottom: 8px;}
@@ -136,79 +137,24 @@ border-right: 1px solid #336EAC;
     height: 130px;
 } */
 
-.con .conItem {
+
+.con li{
     float: left;
-    width: calc( ( 980px - 50px ) / 3 );
+    width: calc( ( 100% - 50px ) / 3 );
     margin-right: 25px;
+    border: 1px solid #000;
+    position: relative;
+    padding: 20px 15px;
     overflow: hidden;
-    position: relative;
-    border: 1px solid #ddd;
-    padding: 10px;
+    background-repeat: no-repeat;
+    background-position: 130px 10px;
 }
 
-
-.con .conItem:last-child{margin-right: 0;}
-
-.con img{
-    display: block;
-    position: absolute;
-    right: -10px;
-}
-
-.con .cWrap{
-    /* 얘는 img와 별개임. img 위로 올라와야하기 때문에 positoin: relative  */
-    position: relative;
-    padding: 20px 10px;
-    width: 135px;
-    /* border: 1px solid #ddd; */
-}
-
-.con h3 {margin-bottom: 8px;       
-}
-.con p {color:#888;}
+.con li:last-child{margin-right: 0;}
+.con li .tWrap{width: 200px; position: relative;}
+.con li .tWrap h3,
+.con li .tWrap p{margin-bottom: 10px;line-height: 21px;}
+.con li img{position: absolute; right: -20px;top: 10px;}
+.con li a{color: blue;}
 
 /* footer  */
-
-/* .ftWrap {
-    float: left;
-    margin-top: 10px;
-    height: 43px;
-} */
-
-#ft {
-    clear:both;
-    padding: 50px 0px;
-}
-
-.ftWrap{background-color: #4d4d4d;}
-
-.ftWrap li {
-    float: left;
-    margin-right: 15px;
-    height: 43px;
-    line-height: 43px;
-    /* background-color: #fff; */
-}
-
-.ftWrap li a{
-    display: block;
-    color :#ccc;
-    font-size: 12px;
-    text-align: center;
-    position: relative;
-
-}
-.ftWrap li a:after{
-    content: ""; display: block;height: 9px;width: 1px;background: #888;
-    position: absolute; left:-7px; top:17px
-}
-
-.ftWrap li:first-child a:after{
-    display: none;
-}
-
-.ftmenu{
-    /* background: #000; */
-}
-
-
