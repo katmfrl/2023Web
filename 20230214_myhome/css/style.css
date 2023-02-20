@@ -83,7 +83,7 @@ border-right: 1px solid #336EAC;
 /* banner  */
 .bWrapper{
     background: #EEE;
-    margin: 50px;
+    margin-bottom: 50px;
 }
 
 .bWrap li{
@@ -177,7 +177,7 @@ border-right: 1px solid #336EAC;
 
 #ft {
     clear:both;
-    padding: 50px 0px;
+    padding-top: 50px;
 }
 
 .ftWrap{background-color: #4d4d4d;}
@@ -207,8 +207,47 @@ border-right: 1px solid #336EAC;
     display: none;
 }
 
-.ftmenu{
-    /* background: #000; */
+
+
+.ftbWrap{
+    background-color: #5E5E5E;
 }
+
+.ftBar{
+    /* background: #000; */
+    height: 110px;
+}
+
+.ftLeft{
+    float: left;
+    margin-right: 50px;
+    line-height: 110px;
+}
+
+.ftLeft a{
+    color : #fff;
+    font-size: 18px;
+}
+
+
+.ftRight{
+    float: left;
+    padding: 10px;
+}
+
+.ftlogo{
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.ftRight .ftlogo,
+#ft .ftRight span{
+    color: #aaa;
+    font-size: 12px;
+    font-weight: bold !important;
+
+}
+
 
 

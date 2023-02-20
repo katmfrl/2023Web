@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <!--이동이라는 버튼을 누르면 내가 지정한 곳으로 이동하도록 만드는 명령어-->
+    <div class="box" onclick="location.href='http://www.naver.com'">
+         이동  
+    </div>
+    <script>
+        const year = 25;
+        const man = "여자";
+        let result = ""; //얘는 문자의 형태다라는 걸 알려주는것
+        let sex = "";
+
+        if(year >= 19 ){
+            result = "성인입니다"
+            if(man =="남자"){
+                sex = "남자"
+            }else{
+                sex = "여자"
+            }
+        }else{
+            result = "미성년자입니다"
+        }
+
+        document.write(sex + " " + result);
+
+        id = prompt('아이디 입력')
+
+    //     document.getElementById('test').innerHTML =result == $('#test').html(result) 제이쿼리를 쓰면 편하다.
+    </script>
+</body>
+</html>

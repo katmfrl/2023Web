@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery.bxslider.css">
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        li{list-style: none;}
+        .slide img{width: 100%;}
+
+        body{
+            background: violet;
+        }
+
+        .wrap{
+            width: 1000px;
+            margin: 0 auto;
+    
+        }
+        .content{
+            height: 200px; background: skyblue;
+        }
+
+        .bx-wrapper {
+            -moz-box-shadow: 0 0 0 none;
+            -webkit-box-shadow: 0 0 0 none;
+            box-shadow: 0 0 0 #fff;
+            border: 0 none;
+            background: #fff;
+        }
+
+        .bx-wrapper .bx-pager {
+            bottom: 30px;
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a:hover, 
+        .bx-wrapper .bx-pager.bx-default-pager a.active, 
+        .bx-wrapper .bx-pager.bx-default-pager a:focus 
+        {
+            background: #000;
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a {
+            background: #f00;
+        }
+
+        .bx-wrapper{
+            margin-bottom: 0px;
+        }
+
+
+        .bWrap {
+            width: 400px;
+            height: 300px;
+        }
+        
+        .bWrap{
+            margin: 0 auto;
+        }
+    </style>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.bxslider.js"></script>
+    <script>
+    // $(".slide").bxSlider({
+    //     auto:true,controls:false
+    // })
+
+    // $(document).ready(function(){});  <--외우기
+
+
+    $(document).ready(function(){
+        $(".slide").bxSlider({
+        auto:true,
+    });
+
+        $(".slide1").bxSlider({
+            auto:true
+        })
+
+    })
+
+    
+
+    // let name = 1 //전역변수(어디서든 쓸수있음)
+
+    // function name(){
+    //     let kwon = 2 //지역변수(이 안에서만 씀)
+    // }
+
+    // 전역변수를 쓰고싶으면 name() <- 이렇게 쓰면 됨 
+
+
+    </script>
+
+
+</head>
+<body>
+    <div class="wrap">
+        <ul class = "slide">
+            <li><img src="../images/pc01.jpg" alt=""></li>
+            <li><img src="../images/pc02.jpg" alt=""></li>
+            <li><img src="../images/pc03.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="content"></div>
+    <div class="bWrap">
+        <ul class = "slide1">
+            <li><img src="../images/img1.jpg" alt=""></li>
+            <li><img src="../images/img2.jpg" alt=""></li>
+            <li><img src="../images/img3.jpg" alt=""></li>
+        </ul>
+    </div>
+ 
+</body>
+</html>
