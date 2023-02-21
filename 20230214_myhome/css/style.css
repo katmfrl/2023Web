@@ -58,14 +58,16 @@ border-right: 1px solid #336EAC;
 /* 인덱스 파일 기준이 아니라 css 파일 기준으로 찾는거인  */
 .visual{
     /* background: #1B335F; */
-    background-color: #213969;
-    background-image: url(../img/visual_bg.jpg);
-    background-repeat: no-repeat; /* 사진 패턴 없애기  */
-    background-position: center; /* 사진 중앙정렬 */
-    background-size: 100%; /* 사진을 화면에 맞추기  */
-    
-    /* background: #1B335F url(../img/visual_bg.jpg) no-repeat center;
-    위 코드들 깔끔하게 정리하면 이렇게됨*/
+    /* background-color: #213969; */
+    /* background-image: url(../img/visual_bg.jpg); */
+    /* background-repeat: no-repeat;  */
+    /* 사진 패턴 없애기  */
+    /* background-position: center;  */
+    /* 사진 중앙정렬 */
+    /* background-size: 100%;  */
+    /* 사진을 화면에 맞추기  */
+    background: #1B335F url(../img/visual_bg.jpg) no-repeat center;
+    /*위 코드들 깔끔하게 정리하면 이렇게됨*/
 } 
 
 .vWrap {
@@ -77,7 +79,8 @@ border-right: 1px solid #336EAC;
     margin-top: -123px;
 }
 .vWrap .img2{ 
-    right: 0;top: 20px;
+    right: 0;
+    top: 20px;
 }
 
 /* banner  */
@@ -227,6 +230,7 @@ border-right: 1px solid #336EAC;
 .ftLeft a{
     color : #fff;
     font-size: 18px;
+    font-style: oblique;
 }
 
 
