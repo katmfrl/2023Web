@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //while문
+        let num = 1;
+        let sum = 0;
+        while(num <= 10){
+            sum += num; //sum = sum + num;
+            num++;//num = num + 1;
+        }
+
+        document.write(sum)
+
+        //while문2(조건이 맞을 때까지 무한루프)
+        var x=1;
+        var sumw=0;
+        while(1){
+            sumw+=x;
+            x++;
+            if(x==10001)
+                break;
+        }
+        document.write("1~10000까지의 합 : <b>" + sumw + "</b>");
+
+        //for문 
+        let sumi = 0;
+        for(let i=1; i<11; i++){
+            sumi += i;
+        }
+        document.write(sumi)
+
+        // for(초기값;조건문;증강연산자){}
+
+        // while문으로 무한루프 돌릴때는 break문 필수임. 아니면 못빠져나옴 
+
+        // 1~10까지 while문이랑 for문 외워야함. 안보고 칠 수 있어야함 
+    </script>
+</body>
+</html>

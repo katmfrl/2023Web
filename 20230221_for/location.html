@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="location.href='location01.html'">
+
+    </div>
+    <div id="day">일요일</div>
+    <div id="day1">일요일</div>
+    <script>
+        const week = new Date().getDay();
+        console.log(week)
+
+        // 선언한다 = 내가 공간을 지정해준다 
+        // 지역변수는 블록 안에서만 사용이 가능
+        // break문이 없으면 탈출이 불가능. 
+        let day = "";
+        switch(week){
+            case 0:
+                day = "일";
+                break;
+            case 1:
+                day = "월";
+                break;
+            case 2:
+                day = "화";
+                break;
+            case 3:
+                day = "수";
+                break;
+            case 4:
+                day = "목";
+                break;
+            
+        }
+
+        // document.write("오늘은 " + day + "요일 입니다.")
+        document.getElementById("day").innerHTML = "오늘은 " + day + "요일 입니다.";
+        // 대입연산자이기 때문에 =를 안쓰면 왼쪽이 자기자신이다. 즉, 왼쪽이 표현된다. 하지만,  =를 쓰면 오른쪽으로 값이 변경된다. =를 통해서 데이터를 밀어넣었기 때문임 
+        // 대입연산자는 저어어어어어어어엉말 중요한거임. 
+
+        console.log(document.getElementById("day").innerHTML);
+
+
+        // $("#day").html(day)
+
+        // j jQuery를 쓰기위해서는 그에 맞는 엔진을 로드시켜야한다 
+        // kwon week = new kwon()
+        // week.
+
+    </script>  
+</body>
+</html>
