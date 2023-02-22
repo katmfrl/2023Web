@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        a:link,a:visited{
+            text-decoration: none; color : skyblue;
+            font-size: 25px;
+        }
+
+        body{
+            background: #eee;
+        }
+
+
+        #city {
+            background: #ccc;
+        }
+
+
+
+    
+    </style>
+</head>
+<body>
+
+    <div id="city">도시</div>
+    <script>
+
+        let arr = ['서울','부산','대전','대구','제주']
+        let alink = [
+            "http://www.naver.com",
+            "http://www.daum.net",
+            "http://www.nexon.com",
+            "http://www.gogle.com",
+            "http://www.netmarble.net"
+        ] 
+
+        console.log(arr[4]);
+        console.log("배열 개수는 " + arr.length +" 개 입니다.")
+        // document.write("배열 개수는 " + arr.length +" 개 입니다.<br>")
+
+
+        //while 
+        let city1 = "";
+
+        while(city1 < arr.length){
+            city1 = city1 + arr;
+        }
+        document.write(city1)
+        console.log(city1)
+
+
+        let city = ""; // 문자로 넣어주겠다는 표시임
+        for(let i=0;i<arr.length;i++){
+            city = city + "<a href ='" + alink[i] + "'>" + arr[i] + "<br>"
+        }
+        // document.write(city);
+
+        document.getElementById('city').innerHTML = city;
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="city">도시</div>
+    <script>
+
+        //while
+        let num = 1;
+        let sum = 0;
+
+        while(num <= 10){
+            sum = sum + num; //sum += num
+            num = num + 1; // num++
+        }
+        console.log(sum);
+
+
+        //for
+        let sum1 = 0;
+        for(let i=1;i<=10;i++){
+            sum1 = sum1 + i
+        }
+        console.log(sum1)
+
+
+        //array 
+
+        let arr =['서울','부산','인천']
+        let alink = [
+            "http://www.naver.com", //서울 누르면 저기로 이동
+            "http://www.daum.net",
+            "http://www.nate.com"
+        ]
+
+        console.log(arr[0]); //인덱스 번호에 맞춰서 데이터를 가져옴
+        console.log("배열 갯수" + arr.length);
+        //new Date().getDay()
+        //arr.length //arr의 갯수를 구하는것
+
+        let city = ""; //시티를 문자로 지정하겠다
+        for(let i=0;i<arr.length;i++){
+            //document.write(arr[i]);
+            // city = city + "<a href='" + alink[i] + "'>" + arr[i] + "</a><br>";
+            //city에 서울이 저장되고 다시 위로 올라가서 length값에 따라 세바퀴를 돌게된다.
+            // city += `<a href="${alink[i]}">${arr[i]}</a>`
+            city = city `<a href="${alink[i]}">${arr[i]}</a><br>`
+
+            // `<--백틱(backtick) 
+        }
+        console.log(city);
+        // document.write(city)
+        document.getElementById("city").innerHTML = city //div라는 박스안에 데이터가 들어감.
+
+    </script>
+</body>
+</html>

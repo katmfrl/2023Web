@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul></ul>
+        </nav>
+    </header>
+
+    <script>
+        const gMenu = [ //변하지 않는 상수값을 줌. 데이터를 건들면 안되니까
+            "회사소개",
+            "제품소개",
+            "온라인문의",
+            "공지사항",
+        ]
+
+
+        //for문 (리스트 데이터를 넣는법)
+        let menu = "";
+        for (let i = 0; i<gMenu.length; i++){
+            //i는 0을 담고있는 변수고 i가 배열을 다 돌때까지 하나씩 업데이트 해줘
+            menu = menu + "<li>"
+            menu = menu + gMenu[i]
+            menu = menu + "</li>"
+        }
+        document.write(menu)
+
+    </script>
+</body>
+</html>

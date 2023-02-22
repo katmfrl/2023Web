@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 외우셈  -->
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        li{list-style: none;}
+        .wrap{width: 1000px; margin: 0 auto;}
+        a:link,a:visited{
+            text-decoration: none; color : #666;
+        }
+        .clearfix:after{content: ""; display: block; clear: both;}
+        .gnb li{
+            float: left; 
+            width: calc( 100% / 5 );
+            height: 40px;
+        }
+
+        .gnb li a{
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gnb li:hover {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <header class = "wrap">
+        <nav>
+            <ul class="gnb"></ul>
+        </nav>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js"></script>
+    <script>
+         //Date (이것만 제대로 되어있으면 나머지는 프로그램이 움직여준다.)
+        const gMenu = [
+            "회사소개", 
+            "제품소개", 
+            "온라인문의", 
+            "커뮤니티",
+            "공지사항" 
+        ]
+
+        const gLink = [
+            "#",
+            "#",
+            "#",
+            "#",
+            "#",
+        ]
+
+        // 밑은 프로그래밍 되어 있으니 수정사항이 있다면 gMenu 부분만 수정하면 됨.
+
+        let menu = ""; // 누적공간을 만들어줌
+        for(let i = 0; i<gMenu.length; i++){
+            menu += "<li>" //해당되는 소스값을 넣은거다. html 속에는 li가 없지만 여기에 필요한 걸 넣은거임. 콘솔보면 나옴 li로
+            menu += "<a href='" + gLink[i] + "'>" + gMenu[i] + "</a>"; //menu에 date 저장
+            menu += "</li>"
+        }
+        console.log(menu)
+
+        //getElementsByClassName
+        // document.getElementsByClassName("gnb")[0].innerHTML = menu;
+        const gnbEl = document.getElementsByClassName("gnb")[0];
+        gnbEl.innerHTML = menu;
+
+        // $(".gnb").html(menu) 
+    </script>
+</body>
+</html>
