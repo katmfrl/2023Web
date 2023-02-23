@@ -12,7 +12,7 @@
 
 
  
-        .img div.imgView {
+        .img .imgView {
             width: calc( ( 100% - 50px )/ 3 );
             float: left;
             margin-right: 25px;
@@ -20,15 +20,15 @@
 
         }
 
-        .img div.imgView:last-child{
+        .img .imgView:last-child{
             margin-right: 0;
         }
 
         .img img{width: 100%; display: block;}
         .img .tWrap{padding: 20px; background: #ccc;}
 
-        .img div.imgView:hover{
-            transition: translateX(10px);
+        .img .imgView:hover{
+            transform: translateX(10px);
         }
 
     </style>
@@ -41,9 +41,9 @@
 
   <script>
     const img = [
-        'img1.jpg',
-        'img2.jpg',
-        'img3.jpg'
+        'img01.jpg',
+        'img02.jpg',
+        'img03.jpg'
     ]
 
     const txt = [
@@ -65,8 +65,8 @@
 
     let imgView = "";
     for(let i=0;i<img.length;i++){
-        imgView += `<div class="imgView">
-                        <img src="../../images/${img[i]}">
+        imgView += `<div class="imgView" onclick="location.href='${link[i]}'">
+                        <img src="../../images/${img[i]}" alt="">
                         <div class="tWrap">
                             <h3>${txt[i]}</h3>
                             <p>${content[i]}</p>
@@ -74,8 +74,17 @@
                     </div>`;
     }
     // console.log(imgView)
-    document.getElementsByClassName("img")[0].innerHTML = imgView
+    // document.getElementsByClassName("img")[0].innerHTML = imgView //대입연산자로 인해 imgView에 다 들어간다.
 
+    const imgElem = document.getElementsByClassName("img")[0];
+    imgElem.innerHTML = imgView;
+
+    imgElem.st
+
+
+
+    console.log(document.getElementsByClassName("img")[0].innerHTML) //img 아래에 있는 html 파일만 가져온다 css제외임.
+    //document.getElementsByClassName("img") <-얘는 선택자
 
   </script>
 
