@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   
+    </style>
+</head>
+<body>
+    <div class="img">
+    </div>
+    <script>
+        let sum = 0; //sum을 글로벌이 아닌 로컬변수로 쓰면 {} 안에서 계속 초기값으로 돌아간다. sum이 for문을 돌면서 계속 초기화가 돼서 0에서 +가 되는거임.
+                    //안에서 sum을 불렀을 때는 전부  계산된게 아니고 0 + kwon으로 나열해서 나오는거고, 바깥에서 불러야만 모두다 더해져서 for문을 빠져나오는거임.
+        for(let kwon=0; kwon <= 10 ; kwon++){
+            sum = sum + kwon; //sum += kwon
+        }
+        console.log(sum)
+
+        const arr = []; //arr는 항상 대괄호[] 를 쓴다.
+
+        //const eng = [0,1,2]
+       // const kwon = [10,20,30] //kwon[i] (권의 몇번째의 있는 점수를 가져와)
+        //const kim = {kor:20, math:40, eng:50} // kim.kor (김의 국어 점수를 가져와줘)
+
+
+        // let k = 10;
+        // const kwon = ["서울","부산","대구"]
+        // const kim = {kor:20, math:40, eng:50}
+
+        // let text = "";
+        // for(let i = 0; i<kwon.length;i++){
+        //     text= text + kwon[i]
+        // }
+        // console.log(text);
+
+        const img = [
+            "img1.jpg",
+            "img2.jpg",
+            "img3.jpg"
+        ]
+
+        const txt = [
+            "앵무새",
+            "장미",
+            "거위"
+        ]
+
+        const content = [
+            "Lorem ipsum dolor sit amet.",
+            "Lorem ipsum dolor sit amet.",
+            "Lorem ipsum dolor sit amet."
+
+        ]
+
+        const obj = [
+            {
+                img : 'img1.jpg',
+                title: "앵무새",
+                content : "Lorem ipsum dolor sit amet."
+            },
+            {
+                img : 'img2.jpg',
+                title: "장미",
+                content : "Lorem ipsum dolor sit amet."
+            },
+            {
+                img : 'img3.jpg',
+                title: "거위",
+                content : "Lorem ipsum dolor sit amet."
+            }
+        ]
+        let imgView = "";
+        for(let i =0; i<img.length;i++){
+            imgView += "<div class = 'imgView'>";
+            imgView += "<img src='../../images/" + img[i] + "'>";
+            imgView += "<h3>" + txt[i] + "</h3>";
+            imgView += "<p>" + content[i] + "</p>";
+            imgView += "</div>"
+
+        }
+        console.log(imgView)
+        document.getElementsByClassName("img")[0].innerHTML = imgView
+
+    </script>
+</body>
+
+</html>

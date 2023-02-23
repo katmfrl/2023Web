@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        .clearfix:after{content:""; display: block;clear: both;}
+        .container{width: 1000px;margin: 0 auto;}
+
+
+ 
+        .img div.imgView {
+            width: calc( ( 100% - 50px )/ 3 );
+            float: left;
+            margin-right: 25px;
+            transition: 0.3s;
+
+        }
+
+        .img div.imgView:last-child{
+            margin-right: 0;
+        }
+
+        .img img{width: 100%; display: block;}
+        .img .tWrap{padding: 20px; background: #ccc;}
+
+        .img div.imgView:hover{
+            transition: translateX(10px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="img container">
+        <!-- .imgView-->
+    </div>
+
+
+  <script>
+    const img = [
+        'img1.jpg',
+        'img2.jpg',
+        'img3.jpg'
+    ]
+
+    const txt = [
+        "회사개요",
+        "회사개요",
+        "회사개요"
+    ] 
+
+    const content = [
+        "Lorem ipsum dolor sit amet.",
+        "Lorem ipsum dolor sit amet.",
+        "Lorem ipsum dolor sit amet."
+    ]
+    const link = [
+        "http://www.naver.com",
+        "#",
+        "#"
+    ]
+
+    let imgView = "";
+    for(let i=0;i<img.length;i++){
+        imgView += `<div class="imgView">
+                        <img src="../../images/${img[i]}">
+                        <div class="tWrap">
+                            <h3>${txt[i]}</h3>
+                            <p>${content[i]}</p>
+                        </div>
+                    </div>`;
+    }
+    // console.log(imgView)
+    document.getElementsByClassName("img")[0].innerHTML = imgView
+
+
+  </script>
+
+
+</body>
+</html>

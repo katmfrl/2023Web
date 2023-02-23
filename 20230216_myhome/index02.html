@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+
+    </style>
+</head>
+<body>
+    <div class="img">
+        <div class="imgItem">
+        </div>
+    </div>
+</body>
+
+<script>
+
+    const img = [
+        "img01.jpg",
+        "img02.jpg",
+        "img03.jpg"
+    ]
+
+    const txt = [
+        "회사개요",
+        "사업분야",
+        "환경경영"
+    ]
+
+    const content = [
+        "한국에너지는 태양열발전 등 그린에너지와 바이오 사업을 통해 신선장동력을 강화하고 있습니다.",
+        "풍부한 경험과 최고의 기술력으로 새로운 미래를 열어갑니다. 장기적인 비전을 통한 끊임없는 성장을 연구합니다.",
+        "한국에너지는 태양열발전 등 그린에너지와 바이오 사업을 통해 신성장동력을 강화하고 있습니다"
+    ]
+
+    let imgView = "";
+    for(let i=0;img.length; i++){
+        imgView += "<div class = 'imgView'>";
+        imgView += "<img src='img/" + img[i] + "'>";
+        imgView += "<h3>" + txt[i] + "</h3>";
+        imgView += "<p>" + content[i] + "</p>";
+        imgView += "</div>"
+    }
+    document.getElementsByClassName("img")[0].innerHTML = imgView
+
+</script>
+</html>
