@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        .btn{
+            width: 200px;
+            height: 40px;
+            background-color: skyblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .sky{
+            background: skyblue;
+        }
+        .pink{
+            background: pink;
+        }
+
+        .btn:hover{
+            background-color: #333;
+            color:#fff;
+        }
+
+        .box{
+            width: 200px;height: 200px;
+            background-color: violet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        // print()
+        // kwon()
+
+        function print(){
+            console.log("print")
+        }
+
+        const kwon = function(){
+            console.log("kwon")
+        }
+        // function print(){} <--이름을 지정해주는것
+        // const kwon = function(){} <- 대입연산자로 지정해주는것
+        // 함수,변수() <-- 내가만든 변수를 혹은 만들어진 함수를 불러오는것
+
+        //$(document).ready(function(){}) 무명함수 why? 이름이 없는 함수를 불러와서 썼으니까
+        //무명함수를 리스너임. 이벤트를 하면 실행하고 나서 듣는자가 필요하다. 듣는자가 실행을 해야하니까. 그 역할을 실행하는게 무명함수인 function(){}
+        //$(".kwon").click(function(){실행문}) 내가 kwon을 눌렀을때 함수가 실행되게 해주세요. 실행문 속에는 유명함수도 포함할수있다. 유명함수는 아무데서나 불러올수있다.
+        // document.getElementById("text").onclick = function(){}
+
+        function link(mylink){
+            location.href= "http://" + mylink;
+        }
+        // link1() <-- 여긴 변수 같아도 됨. 어차피 이안에서만 쓰는거니까 (로컬변수)
+        function link1(mylink){ 
+            if(mylink == "네이버"){
+                location.href = "http://www.naver.com"
+            } else{
+                alert("경로가 이상합니다. 사이트가 없습니다.")
+            }
+        }
+ 
+    </script>
+
+    <button onclick="link('www.naver.com')" class="btn sky">클릭</button>  
+    <!--내가 버튼을 누르면 print라는 말을 띄워줘-->
+    <button onclick="link('www.daum.net')" class="btn pink">클릭</button>
+    <!-- "print()" 이부분은 html이 아니라 자바스크립트로 인식한다.  -->
+    <!-- <button onclick="print()" class="btn pink">클릭</button> -->
+    <button onclick="link1('네이버')" class="btn pink">네이버</button>
+    <button onclick="link1('다음')" class="btn pink">다음</button>
+
+    <!-- mylink는 변수(내가 정하는 것). onclick은 함수(정해져 있는 것)  
+    즉시실행함수 = 부르지 않았는데도 실행되는 함수-->
+
+
+    <div class="box" 
+    onmouseover="boxOver('black','white')" 
+    onmouseout="boxOut('pink','black')"> <!--스크립트 이벤트 함수에는 on이 들어가야함-->
+        마우스
+    </div>
+
+    <script> //스크립트는 맨마지막에 몰아넣거나 스크립트 파일을 따로 만드는것이 좋다.
+        const boxElem = document.getElementsByClassName("box")[0]; //축약
+
+        // boxElem.onmouseover = function(){
+        //     console.log("mouseover")
+        //     boxElem.style.background = "blue"
+        //     boxElem.style.color = "white"
+        // }
+        // boxElem.onmouseout = function(){
+        //     console.log("mouseout")
+        //     boxElem.style.background = "violet"
+        //     boxElem.style.color = "black"
+        // }
+
+        function boxOver(color,fcolor){
+            boxElem.style.background = color
+            boxElem.style.color = fcolor
+        }
+
+        function boxOut(color,fcolor){
+            boxElem.style.background = color
+            boxElem.style.color = fcolor
+        }
+        
+        
+        // document.getElementsByClassName("box")[0].onmouseover = function(){
+        //     console.log("mouseover")
+        // } //이게 이벤트의 기초
+        // document.getElementsByClassName("box")[0].onmouseout = function(){
+        //     console.log("mouseout")
+        // } 
+    </script>
+</body>
+</html>

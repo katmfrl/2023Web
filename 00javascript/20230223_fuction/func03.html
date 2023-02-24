@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+
+        .wrap{
+            width: 1000px;
+            height: 300px;
+            background-color: skyblue;
+            position: relative;
+            margin: 0 auto;
+            /* overflow: hidden; */
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 0;top: 0;
+            background-color: lightblue;
+        }
+
+        .box2{
+            width: 500px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left:-500px;bottom: 0;
+            background-color: pink;
+            transition : 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box1" onmouseover="boxOver()" onmouseout="boxOut()">마우스오버</div>
+        <div class="box2">색변화<br>
+        마우스 오버시 검정색<br>
+        마우스 아웃시 바이올렛</div>
+    </div>
+</body>
+
+<script>
+    // 1. html script 삽입
+    // 2. dom 적용
+
+    //선택자가 중요하다.
+
+    const box1Elem = document.getElementsByClassName("box1")[0];
+    const box2Elem = document.getElementsByClassName("box2")[0];
+
+    // box1Elem.onmouseover = function(){
+    //     box2Elem.style.background = "black"
+    // }
+    // box2Elem.onmouseout = function(){
+    //     box2Elem.style.background = "violet"
+    // }
+
+    function boxOver(){
+        box2Elem.style.background = "black";
+        box2Elem.style.left="0";
+    }
+    function boxOut(){
+        box2Elem.style.background = "pink";
+        box2Elem.style.left="-500px";
+    }
+
+</script>
+</html>
