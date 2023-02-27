@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sum;
+        let kwon = 0; //전역변수, 초기값 
+        function fn(num){ //fn(num)으로 하면 num이 10을 받아서 들어가게됨. 10이 num으로 꽂히게 됨.
+            //블록단위(스코프 = 영역)
+            // let num = 10;
+            sum = num + kwon; 
+            //sum은 로컬변수기 때문에 다른곳에서도 쓰려면 바깥으로 빼서 전역변수로 만들어줘야함.
+            console.log(sum)
+        }
+        fn(20) //부르지 않으면 실행되지 않는다. 인자값을 받아서 변수로 받는다. 
+        console.log(sum)
+
+
+
+        let num1 = 0;
+        let sumnum = 0;
+
+        //밑이 함수 축약을 위해서 만드느는것
+        function sum1(){
+            sumnum = num1 + 100
+            return sumnum;
+            
+        }
+        let test1 = sum1(); //호출
+        console.log(test1)
+
+
+        let funMum = function(){
+            consoloe.log('fumNumText')
+        }
+        //console.log(funNum) //콘솔로그에는 직접적으로 함수를 넣어서 부르지않는다 오류남
+        funNum() 
+
+
+
+
+    </script>
+    
+    
+</body>
+</html>

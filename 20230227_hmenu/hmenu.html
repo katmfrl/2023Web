@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+
+        /* 디자인과 설계 스크립트를 어디에 배치할지  */
+        html,body{height: 100%;}
+    
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; 내 화면의 크기만큼 조절됨*/
+        }
+
+        .btnWrap {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .line{
+            width: 30px;
+            height: 3px;
+            background-color: #000;
+            border-radius: 2px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            /* margin-left: -15px;
+            margin-top: -1.5px; */
+            transform:translate(-50%,-50%);
+            transition: 0.3s;
+        
+        }
+
+
+        .btnWrap .line1{
+            transform:translate(-50%, calc( -50% - 10px ) ); 
+        }
+        .btnWrap .line3{
+            transform: translate(-50%, calc( -50% + 10px ) ); 
+        }
+
+        .btnWrap.click .line1{transform:translate(-50%, -50%) rotate(45deg)}
+        .btnWrap.click .line2{opacity:0;}
+        .btnWrap.click .line3{transform:translate(-50%, -50%) rotate(-45deg)}
+    </style>
+</head>
+<body>
+    <div class="btnWrap" onclick="mclick()">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+    </div>
+    <script>
+        const btnElem = document.querySelector(".btnWrap");
+
+        // btnElem.addEventListener("click",function(){
+        //     btnElem.classList.toggle("click")
+        // });
+
+        // function mclick(){
+        //     console.log("click")
+        //     btnElem.classList.toggle("click")
+        // }
+        // function moclick(){
+        //     console.log("click")
+        //     btnElem.classList.toggle("click")
+        // }
+
+        function mclick(){
+            btnElem.classlList.toggle("click");
+        }
+    </script>
+</body>
+</html>

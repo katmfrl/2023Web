@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="planner"></div>
+
+    
+</body>
+
+<script>
+
+    const planList = document.getElementsByClassName('planner')[0]; 
+
+    const plan = [
+        "수영",
+        "등산",
+        "수면",
+        "취식",
+        "취음",
+        "사진",
+        "산책",
+    ]
+    const planLength = plan.length;
+    
+    function printPlan(){
+        let textPlan = "";
+        for(let i=0;i<planLength;i++){
+            textPlan += plan[i] + "<br>"
+        }
+        planList.innerHTML = textPlan;
+    }
+    printPlan();
+</script>
+</html>

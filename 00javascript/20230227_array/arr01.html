@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let han = "a"
+
+
+        const arr1 = ["a","b","c","d"] //abcd는 데이터의 원소
+        console.log(arr1[0]) //배열의 0번째 자리에 있는 원소를 띄워줘
+        // document.write(arr1[0])
+        // alert(arr1[1])
+        console.log(arr1.length)
+        for(let i=0;i<arr1.length;i++){
+            console.log(arr1[i])
+        }
+
+
+        const city = [
+            "seoul",
+            "pusan",
+            "incheon",
+            "daegu",
+        ]
+        let citySize = city.length;
+
+        // for(let i=0;i<citySize;i++){
+        //     document.write(city[i] + "<br>")
+        //     console.log(city[i])
+        // }
+
+
+        function printCity(){ //함수를 만들어놓으면 밑에 불러다가 쓰기만하면 된다.
+            let text = "";
+            for(let i=0;i<citySize;i++){
+                text = text + city[i]
+            // document.write(city[i] + "<br>")
+            // console.log(city[i])
+            }
+            return text; //text를 바깥으로 내뱉어준다. 저게 없으면 cityValue값을 알수ㅏ 없다. 내부에 있는 값을 빼내서 textValue에 넣어주는 역할임.
+        }
+        let textValue = printCity(); //return으로 빼낸 textValue는 밑으로 들어간다.
+        printCity()
+    </script>
+
+    <div class="city1">
+        <script>
+            printCity()
+        </script>
+    </div>
+    <div class="city2">
+    </div>
+    <!-- 순서도 중요함. div를 먼저 읽고 마지막에 스크립트를 읽게해야 실행이된다. 한줄씩 읽기때문에 밑에 스크립트가 없다면 엔진이 없어서 실행이 안된다  -->
+    <script>
+        document.getElementsByClassName("city2")[i].innerHTNL = textValue;
+    </script>
+</body>
+</html>

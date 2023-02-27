@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{height: 100%;}
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menuWrap{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .line {
+            width: 70px;
+            height: 8px;
+            background-color: #000;
+            border-radius: 5px;
+            position: absolute;
+            transition: 0.3s;
+        }
+
+        .line.line1{transform: translateY(-25px);}
+        .line.line2{opacity: 1;}
+        .line.line3{transform: translateY(25px);}
+
+        .line.line4{transform: translateY(-25px);}
+        .line.line5{opacity: 1;}
+        .line.line6{transform: translateY(25px);}
+
+
+        /* 오른쪽 화살표  */
+        .menuWrap.click .line.line1{transform:translateY(-20px)rotate(38deg)}
+        .menuWrap.click .line.line2{opacity: 0;}
+        .menuWrap.click .line.line3{transform:translateY(20px)rotate(-38deg)}
+
+
+        /* 왼쪽 화살표  */
+        .menuWrap.click .line.line4{transform:translateY(20px)rotate(38deg)}
+        .menuWrap.click .line.line5{opacity: 0;}
+        .menuWrap.click .line.line6{transform:translateY(-20px)rotate(-38deg)}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="menuWrap main1" onclick="hclick(0)">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+    </div>
+    <div class="menuWrap main2" onclick="hclick(1)">
+        <div class="line line4"></div>
+        <div class="line line5"></div>
+        <div class="line line6"></div>
+    </div>
+</body>
+
+<script> //같은 함수를 사용하기 위해서는 함수() <- 인자값을 넣어줘야한다.
+        //인자값을 넣어주고 div에서 각각의 자리를 지정해준다. 0번자리 1번자리 이런식으로 
+        //hclick(num)<-인자값 넣어주고 mWrapElem1[num]에 인자값을 넣어서 위에 자리를 지정한다.
+    const mWrapElem1 = document.querySelectorAll(".menuWrap")
+    function hclick(num){
+        mWrapElem1[num].classList.toggle("click")
+    }
+
+    // const mWrapElem2 = document.querySelector(".main2");
+    // function mclick(){
+    //     mWrapElem2.classlList.toggle("click");
+    //     }
+
+</script>
+</html>
