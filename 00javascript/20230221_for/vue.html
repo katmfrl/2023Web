@@ -11,7 +11,7 @@
 
 <div id="app">
     <ul> 
-        <li v-for="item in menu">
+        <li v-for="item in menu"> <!--menu라는 배열안에서 item이라는인자값을 쓰겠다는 뜻임-->
             {{item}}
         </li>
     </ul>
@@ -20,9 +20,10 @@
 
 <script>
   const { createApp } = Vue
+  //createArpp은 밑에 있는 createApp으로 간다.
 
   createApp({
-    data() {
+    data() { //data==function
       return {
         menu: [
             "회사소개","회계라인","고객문의","QNA"

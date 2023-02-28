@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+
+    </div>
+    <script>
+        const wrapElem = document.querySelector(".wrap")
+        const arr = ["서울","대구","부산","제주"];
+
+        let txt = "";
+        arr.forEach(function(item,i){ //메소드 안에 함수를 직접 인자값으로 불러올때는 소괄호 필요없음
+            //functiom(인자값1,2) 어떤인자값을 불러와도 상관없다. 어차피 지가 알아서 인식함.
+            console.log(item)
+            txt += item 
+        }) 
+        wrapElem.innerHTML = txt
+        // $(".wrap").html(txt)
+        //j query를 벗겨낸다는 것은 vue를 쓰겠다는 말임.
+        //foreach나 for문 중에 쓰다가 편한것을 사용하면됨.
+        
+        for(let i=0;i<arr.length;i++){
+            console.log(arr[i])
+        }
+
+    </script>
+</body>
+</html>
