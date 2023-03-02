@@ -11,7 +11,7 @@
 
 <div id="app">
     <ul> 
-        <li v-for="item in menu"> <!--menu라는 배열안에서 item이라는인자값을 쓰겠다는 뜻임-->
+        <li v-for="(item, index) in menu"> <!--menu라는 배열안에서 item이라는인자값을 쓰겠다는 뜻임-->
             {{item}}
         </li>
     </ul>

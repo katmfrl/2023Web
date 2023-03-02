@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="score">
+        <table>
+            <tr>
+                <td></td>
+                <td>국어</td>
+                <td>영어</td>
+                <td>수학</td>
+            </tr>
+        </table>
+
+    </div>
+    <script>
+        const arr = [
+            {
+                name:"권슬기",
+                kor:86,
+                eng:50,
+                math:50,
+                his:80,
+
+            },
+            {
+                name:"김현정",
+                kor:44,
+                eng:95,
+                math:30,
+                his:56,
+
+            },
+            {
+                name:"박수빈",
+                kor:72,
+                eng:68,
+                math:30,
+                his:56,
+
+            },
+        ]
+            // console.log(arr[1].name)
+
+        const scoElem = document.querySelector(".score")
+        console.log(scoElem)
+        let scoSum = `<table>
+           <tr>
+                <td></td>
+                <td>국어</td>
+                <td>영어</td>
+                <td>수학</td>
+                <td>역사</td>
+            </tr>`;
+
+        for(let i=0;i<arr.length;i++){
+        scoSum += " <tr>"
+        scoSum += " <td>"+ arr[i].name +"</td>"
+        scoSum += " <td>"+ arr[i].kor +"</td>"
+        scoSum += " <td>"+ arr[i].eng +"</td>"
+        scoSum += " <td>"+ arr[i].math +"</td>"
+        scoSum += " <td>"+ arr[i].his +"</td>"
+        scoSum += "   </tr>"
+
+        }
+
+        scoSum += "</table>"
+
+        scoElem.innerHTML = scoSum
+    </script>
+</body>
+</html>
