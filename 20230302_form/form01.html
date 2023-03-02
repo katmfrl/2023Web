@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        fieldset{
+            border: 0 none;
+        }
+
+        .blind{
+            display: block;position: absolute;left: 0;top: -9999px;
+        }
+
+        input:focus{
+            background-color: yellowgreen;
+            outline: none;
+            border: 0.5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method=""></form>
+        <fieldset> <!--바깥에 새로운 영역이 형성된다-->
+            <legend class="blind">기본정보</legend>
+            <label for="myName">이름</label> <!--label for와 id값 같아야함-->
+            <input type="text" name="name" placeholder="성명" id="myName"> 
+            <!--name이라는 그릇에 성명을 넣음-->
+            <label for="pwd">비밀번호</label>
+            <input type="password" name="pw" placeholder="비밀번호" id="pwd">
+            <input type="submit" value ="전송"> 
+            <!-- submit == 자료전송  -->
+
+            <!-- 각각의 그릇에 value값을 다 넣어서 보내는 것이 회원가입 창임 -->
+        </fieldset> 
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <style>
+        html,body{width: 100%;}
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        a:link,a:visited{text-decoration: none; color:#333}
+        li{list-style: none;}
+
+
+        .inpWrap{
+            width: 300px;
+            margin: 0 auto;
+        }
+
+
+        .listView{
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="inpWrap">
+        <input type="text" class="inp" value="" placeholder="오늘의 할일은...">
+        <button class="btn1">입력</button>
+    </div>
+    <div class="listView">
+
+    </div>
+    <script>
+        //btn1을 눌러서 inp가 list view로 오도록 하고싶음
+        const inpElem = document.querySelector(".inp");
+        const btnElem = document.querySelector(".btn1"); //btn1을 눌렀을 때 btnElem이 실행되도록
+        const listElem = document.querySelector(".listView");
+
+        const listData = []; //textView가 들어갈 공간
+
+
+        //btnElem.addEventListener("이벤트이름", 리스너(리스너는 무조건 함수가 되야함)) btnElem에 이벤트값 넣어주기
+        btnElem.addEventListener("click",function(){
+            if(inpElem.value == ""){
+                alert("오늘의 할일을 입력하세요")
+                inpElem.focus()
+            }else {
+                listData.push(inpElem.value); //배열 메소드
+                ViewData(); //ViewData 함수요청
+                inpElem.value = ""; //입력 후 다시 공란으로 만들어줌(빈공간이 value속으로 들어감)
+            }
+        }) 
+
+        function ViewData(){
+            let listTitle = "<ul>";
+            for(let i=0;i<listData.length;i++){
+                listTitle += `<li>${listData[i]}</li>`
+            }
+            listTitle += "</ul>"
+            console.log(listTitle)
+            listElem.innerHTML = listTitle;
+        }
+        ViewData();
+    </script>
+</body>
+</html>

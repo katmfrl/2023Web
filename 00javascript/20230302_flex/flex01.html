@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        li{list-style: none;}
+        a:link,a:visited{text-decoration: none; color:#333;}
+
+        .hdWrap {
+            width: 1000px;
+            height: 50px;
+            margin: 0 auto;
+            display: flex; 
+            justify-content: space-between; /*자식요소랑 찢어줌*/
+        }
+
+        .hdWrap h1{
+            width: 80px;
+            height: 50px;
+            background-color: skyblue;
+        }
+        .hdWrap h1 a{
+            display: flex;
+            height: 100%; /*부모만큼 커진다 커서잡히는게 목적임*/
+            justify-content: center;
+            align-items: center;
+        }
+        .gnb{
+            width: 700px;
+            background-color: pink; 
+            /*hdWrap에 의해서 핑크색이 벌려진거임 중요함*/
+        }
+        .gnb ul{
+            display: flex;
+            justify-content: space-between;
+            background: blue;
+            height: 100%;
+            gap : 5px; /*사이띄우기*/
+        }
+        .gnb ul li{
+            background-color:violet;
+            /*ul에서 플러스돼서 스트레치 된것*/
+            /* width:calc( 100% / 5 ) */
+            flex-grow:1;
+        }
+
+        .gnb ul li a{
+            /* background-color: blue; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /*스트레치를 위해서*/
+        }
+    </style>
+</head>
+<body>
+    <header class="hd">
+        <div class="hdWrap"> <!--1000-->
+            <h1><a href="#">logo</a></h1> <!-- 80 50-->
+            <nav class="gnb"> <!-- 700 50 -->
+                <ul>
+                    <li><a href="#">menu1</a></li>
+                    <li><a href="#">menu2</a></li>
+                    <li><a href="#">menu3</a></li>
+                    <li><a href="#">menu4</a></li>
+                    <li><a href="#">menu5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+
+</html>

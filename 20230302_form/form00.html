@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="form.jsp" method="post"> 
+    <!--query값이 담겨서 action으로 온다 자료를 보내는 폼임-->
+    <!-- 자료를 어떻게 보낼 거냐. 1. get방식 2. post방식  
+    get방식 쓰는 이유는 노출해야하는 경우가 있기 때문임
+    get방식은 그 홈페이지 내에서만 사용하는 경우가 많음. 개인정보가 노출될 위험이 있기때문-->
+    <!-- get은 공개적이고 post 데이터정보가 안보임 -->
+    이름 <input type="text" name="name"> <!--name라는 속성이 있는거임 -->
+    비밀번호 <input type="text" password="pw"> 
+    <input type="submit">
+    </form>
+
+    <!-- 그릇에 담아서 어느파일로 전송하고 그애를 데이터베이스에 넣음(가입)
+    그르에 담아서 어느파일로 전송해서 데이터베이스와 비교함(로그인) -->
+</body>
+</html>
