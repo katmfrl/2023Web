@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+
+        #hd h1 {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background: #000; */
+        }
+
+        .inpWrap,.listView{
+            width: 300px;
+            margin: 0 auto;            
+            /* display: flex; */
+            justify-content: space-between;
+            /* align-items: center; */
+        }
+        .inpWrap{
+            background-color: #fff; margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        /* .listView{} */
+        .btnAllDel{display: none;}
+
+
+        .listView ul li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .listView .view{
+            height: 100px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="hd">
+        <h1>To do list</h1>
+        <div class="inpWrap">
+            <input type="text" class ="inp">
+            <button class="btn1">추가</button>
+            <button class="btnAllDel" onclick="AllDel()">전체삭제</button>
+        </div>
+    </div>
+    <div class="listView">
+        <ul></ul>
+        <div class="view"></div>
+        <!-- <button class="btnAllDel" onclick="AllDel()">전체삭제</button> -->
+        <!-- 쓰이는 변수 제대로 맞추기. 대문자 소문자 차이라도 틀리면 안먹을 수가 있음  -->
+    </div>
+    <script>
+        const inpElem = document.querySelector(".inp");
+        const btn1Elem = document.querySelector(".btn1");
+        const listElem = document.querySelector(".listView ul");
+        const listNoneElem = document.querySelector(".listView .view");
+        const btnAllElem = document.querySelector(".btnAllDel");
+        //여기에 ul를 선언하고 div listView에다가 ul를 끼워넣으면 밑에 ul를 따로 설정하지않아도 알아서 들어간다. 이건 한번 더 해보면서 익혀야함
+
+        let listData = [];
+
+        //btn1Elem.addEventListener("이벤트이름",btnEvent)
+        //function.btnEvent(){}
+        btn1Elem.addEventListener("click",function(){
+            if(inpElem.value == "") {
+                alert("빈칸을 입력해주세요")
+                inpElem.focus()
+            }else{
+                listData.push(inpElem.value)
+                inpElem.value="";
+                ViewData();
+            }
+        })
+
+
+        function ViewData(){
+            let viewList =""; 
+            // for(let i=0;i<listData.length;i++){
+            //     viewList += "<li>" + listData[i] + "<span onclick='itemDel("+ i +")'>삭제</span></li>"
+            // }
+
+            listData.forEach(function(item,index){
+                
+                viewList += `<li><span>${item}</span><button onclick="itemDel(${index})">X</button></li>`
+            })
+
+            // <li><span></span><button onclick=""></button></li>
+
+
+
+
+            if(listData.length>0){
+                //document.querySelector(".btnAllDel").style.display="block";
+                btnAllElem.style.display = "block";
+                listNoneElem.style.display = "none";
+            }else{
+                //document.querySelector(".btnAllDel").style.display="none";
+                btnAllElem.style.display="none";
+                listNoneElem.style.display="flex";
+            }
+
+            listElem.innerHTML = viewList;
+        }
+        ViewData();
+
+        function AllDel(){
+            listData=[];
+            ViewData();
+        }
+
+        function itemDel(index){
+            listData.splice(index,1)
+            ViewData();
+        }
+
+        function addTodo(){
+            addValue.value = "";
+            addValue.focus();
+            list.addEventListener("click",function(){
+                list.style.textDecoration = "line-through"
+                list.style.color = "gray"
+            })
+        }
+
+        function modify(){
+            let 
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

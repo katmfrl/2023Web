@@ -1,0 +1,27 @@
+@charset "uft-8";
+
+/* 자주 쓰는 스타일용어를 정리했기때문에 적재적소에 가져다 쓰면 됨  */
+
+html,body{height: 100%;}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+li {
+    list-style: none;
+}
+
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}

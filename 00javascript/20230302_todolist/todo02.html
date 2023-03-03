@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .inpWrap,.listView{
+            width: 400px;
+            margin: 0 auto;
+        }
+        .inpWrap{background-color: pink; margin-bottom: 10px;}
+        /* .listView{} */
+        .btnAllDel{display: none;}
+        .listView ul li{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .listView .view{
+            height: 100px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-color: violet;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="inpWrap">
+        <input type="text" class ="inp">
+        <button class="btn1">입력</button>
+    </div>
+    <div class="listView">
+        <ul></ul>
+        <div class="view">오늘의 할일을 입력하세요</div>
+        <button class="btnAllDel" onclick="AllDel()">전체삭제</button>
+        <!-- 쓰이는 변수 제대로 맞추기. 대문자 소문자 차이라도 틀리면 안먹을 수가 있음  -->
+    </div>
+    <script>
+        const inpElem = document.querySelector(".inp");
+        const btn1Elem = document.querySelector(".btn1");
+        const listElem = document.querySelector(".listView ul");
+        const listNoneElem = document.querySelector(".listView .view");
+        const btnAllElem = document.querySelector(".btnAllDel");
+        //여기에 ul를 선언하고 div listView에다가 ul를 끼워넣으면 밑에 ul를 따로 설정하지않아도 알아서 들어간다. 이건 한번 더 해보면서 익혀야함
+
+        let listData = [];
+
+        //btn1Elem.addEventListener("이벤트이름",btnEvent)
+        //function.btnEvent(){}
+        btn1Elem.addEventListener("click",function(){
+            if(inpElem.value == "") {
+                alert("빈칸을 입력해주세요")
+                inpElem.focus()
+            }else{
+                listData.push(inpElem.value)
+                inpElem.value="";
+                ViewData();
+            }
+        })
+
+
+        function ViewData(){
+            let viewList =""; 
+            for(let i=0;i<listData.length;i++){
+                viewList += "<li>" + listData[i] + "<span onclick='itemDel("+ i +")'>삭제</span></li>"
+            }
+
+            // listData.forEach(function(item,index){
+            //     viewList += `<li><span>${item}</span><span onclick="itemDel(${index})">삭제</span></li>`
+            // })
+
+
+            if(listData.length>0){
+                //document.querySelector(".btnAllDel").style.display="block";
+                btnAllElem.style.display = "block";
+                listNoneElem.style.display = "none";
+            }else{
+                //document.querySelector(".btnAllDel").style.display="none";
+                btnAllElem.style.display="none";
+                listNoneElem.style.display="flex";
+            }
+
+            listElem.innerHTML = viewList;
+        }
+        ViewData();
+
+        function AllDel(){
+            listData=[];
+            ViewData();
+        }
+
+        function itemDel(index){
+            listData.splice(index,1)
+            ViewData();
+        }
+
+    </script>
+    <i class="fa-brands fa-github"></i>
+    
+</body>
+</html>
