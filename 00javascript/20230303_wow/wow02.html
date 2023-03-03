@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         .container{
             width: 1000px;
@@ -17,15 +19,96 @@
         }
         .visual{
             height: 100vh;
-            background-color: url(../../images/pc01.jpg);
+            background-image: url(../../images/pc01.jpg);
             background-position: center;
             background-size: cover;
         }
+
+        .content ul{
+            display: flex;
+            justify-content: space-between;
+        }
+        .content ul li{width: calc( ( 100% - 60px ) / 4);}
+        .content ul img{width: 100%;}
+        .content ul .tWrap{background-color: #ddd;padding:15px 20px;}
+
+        .text{color:red;font-size: 3em;}
     </style>
 </head>
 <body>
-    <header class ="hd"></header>
+    <header class ="hd container">
+        <div class="text"><i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-hippo"></i></div>
+            <i class="fa-solid fa-hand"></i>
+    </header>
     <div class="visual"></div>
-    <section class="content"></section>
+    <section class="content container">
+        <ul>
+            <li class="wow pulse" data-wow-delay="0" date-wow-offset="100">
+                <img src="../../images/testimg.jpg" alt="">
+                    <div class="tWrap">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    </div>
+            </li>
+            <li class ="wow pulse" data-wow-delay="0.2s">
+                <img src="../../images/testimg.jpg" alt="">
+                    <div class="tWrap">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    </div>
+            </li>
+            <li class ="wow pulse" data-wow-delay="0.4s">
+                <img src="../../images/testimg.jpg" alt="">
+                    <div class="tWrap">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    </div>
+            </li>
+            <li class ="wow pulse" data-wow-delay="0.6s">
+                <img src="../../images/testimg.jpg" alt="">
+                    <div class="tWrap">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    </div>
+            </li>
+        </ul>
+    </section>
+    <section class="content container" style="display: none">
+        <ul>
+            <li class="wow" data-wow-delay="0" data-wow-iteration="infinite">
+                <img src="../../images/testimg.jpg" alt="">
+                    <div class="tWrap">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    </div>
+            </li>
+            <li class ="wow" data-wow-delay="0.2s" data-wow-iteration="infinite">
+                <img src="../../images/testimg.jpg" alt="">
+                    <div class="tWrap">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    </div>
+            </li>
+            <li class ="wow" data-wow-delay="0.4s" data-wow-iteration="infinite">
+                <img src="../../images/testimg.jpg" alt="">
+                    <div class="tWrap">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    </div>
+            </li>
+            <li class ="wow" data-wow-delay="0.6s" data-wow-iteration="infinite">
+                <img src="../../images/testimg.jpg" alt="">
+                    <div class="tWrap">
+                        <h3>Lorem, ipsum dolor.</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    </div>
+            </li>
+        </ul>
+    </section>
+    <script src="wow.js"></script>
+    <script>
+        new WOW().init() //wow를 실행시키는 코드
+    </script>
 </body>
 </html>

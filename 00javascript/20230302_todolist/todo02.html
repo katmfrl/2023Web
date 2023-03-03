@@ -91,11 +91,13 @@
         }
         ViewData();
 
+        //전체삭제
         function AllDel(){
             listData=[];
             ViewData();
         }
 
+        //선택삭제
         function itemDel(index){
             listData.splice(index,1)
             ViewData();
