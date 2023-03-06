@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .container{width: 1200px; margin: 0 auto;}
+        .hdWrap{
+            padding: 10px; background: pink;
+            position: absolute;
+            width: 100%;
+            top: 0;
+        }
+        .mWrap{display: flex; background: violet;}
+        .mWrap h1{width: 100px; text-align: center;}
+        .mWrap .nav{
+            margin-left: auto;
+        }
+
+        .mWrap .toggle{
+            /* display: none; */
+            width: 100px;
+            background: #000;
+        }
+
+        .mWrap .nav ul{
+            display: flex;
+            height: 100%;
+        }
+
+        .mWrap .nav ul li{width: 150px;height: 100%;}
+        .mWrap .nav ul li a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .mWrap .nav ul li a:hover{
+            background: aqua;
+        }
+
+
+        .visual{
+            height: 100vh;
+            background-image: url(../images/pc01.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
+
+        @media screen and ( max-width:768px ) and ( min-width:600px ){
+            .container{width: 100%;}
+            .mWrap .nav ul li{width: 80px;}
+        }
+
+        @media screen and ( max-width:599px ){
+            .container{width: 100%;}
+            .mWrap .nav{display: none;}
+            .mWrap .toggle{
+                display: block;
+                margin-left: auto;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="hdWrap">
+        <div class="mWrap container">
+            <h1><a href="#">logo</a></h1>
+                <div class="nav">
+                    <ul>
+                        <li><a href="#">menu1</a></li>
+                        <li><a href="#">menu2</a></li>
+                        <li><a href="#">menu3</a></li>
+                        <li><a href="#">menu4</a></li>
+                        <li><a href="#">menu5</a></li>
+                    </ul>
+                </div>
+            <div class="toggle"></div>
+        </div>
+    </div>
+    <div class="visual"></div>
+</body>
+</html>
