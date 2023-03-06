@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- fontawosome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .btn_modi {
+            display: none;
+        }
+
+        .inpWrap, .listView{
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .inpWrap{background: skyblue;}
+        .listView{background: yellowgreen;}
+
+        .listView ul li{
+            display: flex;
+            padding: 5px 0;
+        }
+        .listView ul li .list{display: flex; align-items: center;padding-left: 10px;}
+        .listView ul li .icon {
+            margin-left: auto; /*아이템을 빈공간만큼 쫙 벌어지게 해줌 - 이거 외워야함 */
+            background: #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: flex;
+            gap:10px;
+        } 
+
+    </style>
+
+</head>
+<body>
+    <!-- <i class="fa-solid fa-trash"></i>
+    <i class="fa-solid fa-hammer"></i>
+    <i class="fa-solid fa-square-check"></i> -->
+
+    <div class="inpWrap">
+        <input type="text" class="inp">
+        <button class="btn_input">입력</button>
+        <button class="btn_modi">수정</button>
+    </div>
+    <div class="listView">
+        <ul></ul>
+        <button class="btnAllDel" onclick="listAllDel()">전체삭제</button>
+    </div>
+
+    <script>
+        const inpElem = document.querySelector(".inp");
+        const btnIpElem = document.querySelector(".btn_input");
+        const btnMoElem = document.querySelector(".btn_modi");
+        const listElem = document.querySelector(".listView ul");
+
+
+        let listData = [
+        "자바 스크립트1",
+        "자바 스크립트2",
+        "자바 스크립트3",
+        ];
+
+        //jqeury $는 자바스크립트임
+        //$(".btn_input").on("click",function(){}) $(".inp").val()
+        btnIpElem.addEventListener("click",function(){
+            if(inpElem.value != ""){
+                // listData.push(inpElem.value) 빼는 이유는 밑에서 key 데이터가 들어가기 때문에 중복으로 들어가서 주석처리하는거임
+                localStorage.setItem(inpElem.value,inpElem.value) //키 밸류 값 똑같은 거 넣기. 오늘만
+                viewData();
+                inpElem.value = "";
+            }else{
+                alert("추가해주세요")
+                inpElem.focus()
+            }
+        })
+        //forEach는 무조건 배열임 (기억하기)
+        function viewData(){
+            listData = []; //중복값이 들어가는 걸 방지하기위해 다시 빈그릇으로 만들어준거임.
+
+            for(let i=0;i<localStorage.length;i++){
+                //key값의 몇번째에 있는 데이터를 꽂아넣겠다.
+                listData.push(localStorage.key(i));
+            }
+            console.log(listData)
+
+            let viewList=""
+            listData.forEach(function(item,index){ //index==매개변수(숫자), 첫번째 인자는 순환되는 값(문자 왜냐면 배열이니까)
+                            //function(key,value)
+                viewList += `<li>
+                                <div class="list">${item}</div>
+                                <div class='icon'> 
+                                    <a href="#" onclick="itemDel('${item}')"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="#"><i class="fa-solid fa-hammer"></i></a>
+                                    <a href="#"><i class="fa-solid fa-square-check"></i></a>
+                                </div>                                
+                            </li>`
+            })
+            listElem.innerHTML = viewList;
+        }
+        viewData()
+
+        function itemDel(item){
+            console.log(item)
+            localStorage.removeItem(item)
+            viewData()
+        }
+
+    </script>
+</body>
+</html>
