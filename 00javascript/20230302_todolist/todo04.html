@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+        .btn_modi {
+            display: none;
+        }
+
+        .inpWrap, .listView{
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .inpWrap{background: skyblue;}
+        .listView{background: pink;}
+
+        .listView ul li{
+            display: flex;
+            padding: 5px 0;
+        }
+        .listView ul li .list{display: flex; align-items: center;padding-left: 10px;}
+        .listView ul li .icon {
+            margin-left: auto;
+            background: #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: flex;
+            gap:10px;
+        } 
+
+        .listView ul li .icon a{color:white}
+
+        .item.done{background: darkkhaki;}
+    </style>
+</head>
+
+<body>
+    <!-- <i class="fa-solid fa-trash"></i>
+    <i class="fa-solid fa-hammer"></i>
+    <i class="fa-solid fa-square-check"></i> -->
+
+    <div class="inpWrap">
+        <input type="hidden" class="num">
+        <input type="text" class="inp">
+        <button class="btn_input">입력</button>
+        <button class="btn_modi">수정</button>
+    </div>
+    <div class="listView">
+        <ul></ul>
+        <button class="btnAllDel" onclick="listAllDel()">전체삭제</button>
+    </div>
+
+    <script>
+        let listData = [
+        {todo:"자바1",done:false}, //0==false 1==true
+        {todo:"자바2",done:true},
+        {todo:"자바3",done:false},
+        ]
+
+        // listData[0].todo == item.todo
+
+        const inpElem = document.querySelector(".inp");
+        const btnIpElem = document.querySelector(".btn_input");
+        const numElem = document.querySelector(".num");
+        const btnMoElem = document.querySelector(".btn_modi");
+        const listElem = document.querySelector(".listView ul");
+
+
+        //입력
+
+        btnIpElem.addEventListener("click",function(){
+            let value = {"todo":inpElem.value,"done":false}
+            if(inpElem.value != ""){
+                listData.push(value);
+                viewData()
+                inpElem.value ="";
+            }else{
+                alert("할일을 추가해주세요")
+                inpElem.focus()
+            }
+
+        });
+
+
+
+        //수정
+
+        btnMoElem.addEventListener("click",function(){
+            listData[numElem.value].todo = inpElem.value;
+            //원래 있던데이터를 inpElem에 적은 데이터로 바꾸겠다.
+            listData[numElem.value].done = false;
+            inpElem.value ="";
+            btnIpElem.style.display="inline-block" //블록값이 되면 밑으로 빠지기 때문에
+            btnMoElem.style.display="none"
+            viewData()
+        })
+
+
+        function viewData(){
+            let viewList = "";
+            listData.forEach(function(item,index){
+                console.log(item.todo)
+                    if(item.done == true){
+                        viewList += `<li class="item done">${item.todo}` //item.todo == listData[index]
+                    }else{
+                        viewList += `<li class="item">${item.todo}`
+                    }
+                    viewList += `<div class='icon'> 
+                                    <a href="javascript:void(0)" onclick="itemDel(${index})"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="javascript:void(0)" onclick="modi('${item.todo}','${index}')"><i class="fa-solid fa-hammer"></i></a>
+                                    <a href="javascript:void(0)" onclick="done(${index})"><i class="fa-solid fa-square-check"></i></a>
+                                </div>                                
+                                `               
+            });
+            listElem.innerHTML = viewList
+
+            // for(i=0; i<listData.length; i++){
+            //     console.log(listData[i].todo)
+            // } forEach랑 for문을 자유자재로 쓸수있도록 해보자.
+
+            //forEach는 배열을 순회해서 쓸수있도록 만들어주는 아이임. for문이구나로 보면 안됨.
+        }
+        viewData()
+
+
+        function itemDel(index){
+            listData.splice(index,1)
+            viewData()
+        }
+
+        function listAllDel(){
+            listData = []
+            viewData()
+        }
+        
+        function done(index){
+            console.log(index)
+            if(listData[index].done == true ){
+                listData[index].done = false
+            }else{
+                listData[index].done = true
+            }
+            //listData[index].done = !listData[index].done <-위랑 같은 기능의 코드 (여기는 true, false값만 들어온다.)
+            viewData()
+        };
+
+
+        function modi(todo,index){
+            console.log(todo+index)
+            inpElem.value = todo;
+            numElem.value = index; 
+            btnIpElem.style.display="none"
+            btnMoElem.style.display="inline-block"
+        };
+
+        // function viewData(){
+        //     let viewList = "";
+        //     listData.forEach(function(item,index){
+        //         console.log(item.todo)
+        //         viewList += "<li"
+        //             if(item.done == true){
+        //                 viewList += " class='done' "
+        //             }
+        //             // `<li class="item done">${item.todo}</li>`
+        //         viewList += ">"
+        //         viewList += item.todo
+        //         viewList += "</li>"
+        //     })
+        //     listElem.innerHTML = viewList
+        // }
+    </script>
+</body>
+
+</html>
