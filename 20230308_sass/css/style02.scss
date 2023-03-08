@@ -1,0 +1,45 @@
+
+//변수지정(내가 쓰려고하는 모든 것에 다 변수지정)
+$width:1200px;
+$mColor:skyblue;
+$sColor:pink;
+
+.middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //align-items == 스트레치를 갖고있음.
+}
+
+
+.container{
+    width:$width;
+    margin: 0 auto;
+    display: flex;
+    h1{
+        width: 100px;
+        a{
+            @extend .middle
+        }
+    }
+    .nav{
+        margin-left: auto; //오른쪽으로 갖다 붙임
+        width: 600px;
+        ul{
+            display: flex; //컨테이너 == 부모
+            height: 100%;
+            li{
+                flex-grow: 1; //내가 만든만큼 부모의 크기의 n분의 1씩 잘라서 자리잡아줌(아이템==자식)
+                background: red;
+                a{
+                    @extend .middle;
+                    height: 100%; //부모의 크기에 맞춰서 높이값이 지정됨
+                    background: $mColor;
+                    &:hover{
+                        background: $sColor;
+                    }
+                }
+            }
+        }
+    }
+}

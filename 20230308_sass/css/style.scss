@@ -1,0 +1,42 @@
+$width:1200px;
+$mColor:lightgreen;
+$sColor: yellowgreen;
+
+
+.middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width:$width;
+    margin: 0 auto;
+    display: flex;
+    h1{
+        width: 100px;
+        a{
+            @extend .middle
+        }
+    }
+    .nav{
+        margin-left: auto;
+        width: 600px;
+        ul{
+            display: flex;
+            height: 100%;
+            li{
+                flex-grow: 1;
+                background: red;
+                a{
+                    @extend .middle;
+                    height: 100%;
+                    background: $mColor;
+                    &:hover{
+                        background: $sColor;
+                    }
+                }
+            }
+        }
+    }
+}
