@@ -5,28 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>mytodo</title>
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-
+/* 
+        body{background: linear-gradient(to bottom, #E6E6FA 0%, #FFF0F5);} */
         .btn_modi {
             display: none;
         }
 
-        .inpWrap, .listView{
+        .inpWrap,
+        .listView {
             width: 300px;
             margin: 0 auto;
         }
 
-        .inpWrap{background: skyblue;}
-        .listView{background: pink;}
+        .inpWrap {
+            background: skyblue;
+        }
 
-        .listView ul li{
+        .listView {
+            background: pink;
+        }
+
+        .listView ul li {
             display: flex;
             padding: 5px 0;
         }
-        .listView ul li .list{display: flex; align-items: center;padding-left: 10px;}
+
+        .listView ul li .list {
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+        }
+
         .listView ul li .icon {
             margin-left: auto;
             background: #000;
@@ -34,12 +49,16 @@
             border-radius: 5px;
             font-size: 12px;
             display: flex;
-            gap:10px;
-        } 
+            gap: 10px;
+        }
 
-        .listView ul li .icon a{color:white}
+        .listView ul li .icon a {
+            color: white
+        }
 
-        .item.done{background: darkkhaki;}
+        .item.done {
+            background: darkkhaki;
+        }
     </style>
 </head>
 
@@ -60,14 +79,10 @@
     </div>
 
     <script>
-        let listData = [
-        {todo:"자바1",done:false}, //0==false 1==true
-        {todo:"자바2",done:true},
-        {todo:"자바3",done:false},
-        ]
+        let listData = [ ]
+        //0==false 1==true
 
         // listData[0].todo == item.todo
-
         const inpElem = document.querySelector(".inp");
         const btnIpElem = document.querySelector(".btn_input");
         const numElem = document.querySelector(".num");
@@ -77,49 +92,67 @@
 
         //입력
 
-        btnIpElem.addEventListener("click",function(){
-            let value = {"todo":inpElem.value,"done":false}
-            if(inpElem.value != ""){
+        btnIpElem.addEventListener("click", function () {
+
+            let value = { "todo": inpElem.value, "done": false }
+
+            if (inpElem.value != "") {
                 listData.push(value);
+
+                //localStorage insert  
+                let valueData = JSON.stringify(listData)
+                localStorage.setItem("todoData", valueData)
+
                 viewData()
-                inpElem.value ="";
-            }else{
+                inpElem.value = "";
+            } else {
                 alert("할일을 추가해주세요")
                 inpElem.focus()
             }
 
         });
 
-
+        //stringify == 문자화 parse == 번역(가지고오는 역할)
 
         //수정
 
-        btnMoElem.addEventListener("click",function(){
+        btnMoElem.addEventListener("click", function () {
             listData[numElem.value].todo = inpElem.value;
             //원래 있던데이터를 inpElem에 적은 데이터로 바꾸겠다.
             listData[numElem.value].done = false;
-            inpElem.value ="";
-            btnIpElem.style.display="inline-block" //블록값이 되면 밑으로 빠지기 때문에
-            btnMoElem.style.display="none"
+            inpElem.value = "";
+            btnIpElem.style.display = "inline-block" //블록값이 되면 밑으로 빠지기 때문에
+            btnMoElem.style.display = "none"
+
+            //localStorage get  
+            let valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData", valueData)
+
             viewData()
         })
 
 
-        function viewData(){
+        function viewData() {
+            if (localStorage.length > 0) {
+                let localData = localStorage.getItem("todoData");
+                listData = JSON.parse(localData)
+            }
+
             let viewList = "";
-            listData.forEach(function(item,index){
+            listData.forEach(function(item, index){
                 console.log(item.todo)
-                    if(item.done == true){
-                        viewList += `<li class="item done">${item.todo}` //item.todo == listData[index]
-                    }else{
-                        viewList += `<li class="item">${item.todo}`
-                    }
-                    viewList += `<div class='icon'> 
+
+                if (item.done == true) {
+                    viewList += `<li class="item done">${item.todo}` //item.todo == listData[index]
+                } else {
+                    viewList += `<li class="item">${item.todo}`
+                }
+                viewList += `<div class='icon'> 
                                     <a href="javascript:void(0)" onclick="itemDel(${index})"><i class="fa-solid fa-trash"></i></a>
                                     <a href="javascript:void(0)" onclick="modi('${item.todo}','${index}')"><i class="fa-solid fa-hammer"></i></a>
                                     <a href="javascript:void(0)" onclick="done(${index})"><i class="fa-solid fa-square-check"></i></a>
                                 </div>                                
-                                `               
+                                `
             });
             listElem.innerHTML = viewList
 
@@ -132,35 +165,57 @@
         viewData()
 
 
-        function itemDel(index){
-            listData.splice(index,1)
+        function itemDel(index) {
+            listData.splice(index, 1)
+
+            btnIpElem.style.display = "inline-block"
+            btnMoElem.style.display = "none"
+
+            //localStorage insert  
+            let valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData", valueData)
+
             viewData()
         }
 
-        function listAllDel(){
-            listData = []
-            viewData()
-        }
-        
-        function done(index){
+
+        function done(index) {
             console.log(index)
-            if(listData[index].done == true ){
+            if (listData[index].done == true) {
                 listData[index].done = false
-            }else{
+            } else {
                 listData[index].done = true
             }
             //listData[index].done = !listData[index].done <-위랑 같은 기능의 코드 (여기는 true, false값만 들어온다.)
+
+            //localStorage insert  
+            let valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData", valueData)
+
             viewData()
         };
 
 
-        function modi(todo,index){
-            console.log(todo+index)
+        function modi(todo, index) {
+            console.log(todo + index)
             inpElem.value = todo;
-            numElem.value = index; 
-            btnIpElem.style.display="none"
-            btnMoElem.style.display="inline-block"
+            numElem.value = index;
+            btnIpElem.style.display = "none"
+            btnMoElem.style.display = "inline-block"
         };
+
+        function listAllDel() {
+            listData = []
+
+            btnIpElem.style.display = "inline-block"
+            btnMoElem.style.display = "none"
+
+            //localStorage insert  
+            let valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData", valueData)
+
+            viewData()
+        }
 
         // function viewData(){
         //     let viewList = "";
