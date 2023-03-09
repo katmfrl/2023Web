@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .box1.kwon {
+            background-color: #f00;
+            color: white;
+        }
+        .banner {
+            width: 240px;
+            height: 175px;
+            background-image: url(game_start_sp.jpg);
+            background-repeat: no-repeat;
+            /* background-position: 0 calc( -175px * 9 ); */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <button clss="btn1">변경</button>
+    <button clss="btn2">제거</button>
+    <script>
+        let boxElem = document.querySelector(".box")
+        boxElem.innerHTML = "test"
+        boxElem.style.border = "1px solid #000"
+        boxElem.style.background = "skyblue"
+
+
+        //jQuery
+        let box1Elem = $(".box1")
+        box1Elem.html("test1")
+        // box1Elem.css("background-color","red").css("color","white")
+        // box1Elem.css({
+        //     "background-color":"red",
+        //     "color":"white"
+        // })
+
+        // $(".btn1").click(function(){
+        //     $(".box1").css({
+        //         "background-color":"red",
+        //         "color":"white"
+        //     }).addClass("kwon")
+        // })
+
+        $(".btn1").click(function () {
+            $(".box1").addClass("kwon")
+        });
+        $(".btn2").click(function () {
+            $(".box1").removeClass("kwon")
+        });
+
+    </script>
+
+
+    <div class="banner"></div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
