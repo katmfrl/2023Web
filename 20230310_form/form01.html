@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="action.jsp" method="post">
+        <select name="fruit" id="fruit" onchange="selClick()"> 
+            <!--name는 그릇 / onchange라는 이벤트는 정말정말 중요한 이벤트임-->
+            <option value="딸기">딸기</option>
+            <option value="사과" selected>사과</option>
+            <!-- selceted == checked -->
+            <option value="바나나">바나나</option>
+        </select>
+        <!-- <input type="text">
+        <input type="submit">  -->
+        <!--버튼을 누르면 action.jsp로 날아감 그전에 스크립트를 거쳐서 유효성검사를 거쳐야함-->
+
+    </form>
+    <script>
+        const sel = document.querySelector("#fruit") 
+        console.log(sel.selectedIndex)
+
+        function selClick(){
+            let value = sel.options[sel.selectedIndex].value; //셀렉트를 선택할때마다 onchange에 의해서 값이 변경된다.
+            //sel은 fruit를 담고있는 데이터고 그안에 있는 옵션들에서 index값만 떼와서 거기에 있는 value를 뽑아오는거임.
+            console.log(value)
+        }
+    </script>
+</body>
+</html>

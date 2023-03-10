@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="tab">
+        <ul>
+            <li class="active">tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+            <li>tab4</li>
+        </ul>
+    </div>
+    <div class="conWrap">
+        <div>
+            1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, sint?
+        </div>
+        <div>
+            2.Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, sint?
+        </div>
+        <div>
+            3.Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, sint?
+        </div>
+        <div>
+            4.Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, sint?
+        </div>
+    </div>
+    <script>
+        $(".tab li").click(function(){
+            console.log($(this).index())
+            let i = $(this).index()
+            //$(this)==li 즉 li의 순번. 몇번째를 선택했는지 알기위해 index값을 넣은거임
+            $(".tab li").removeClass("active")
+            $(".tab li").eq(i).addClass("active")
+            //li가 컬렉셔이 된다. 컬렉션이 된다는건 위에서 그 정보를 저장하고 있다는거임. 그래서 나는 저장된정보를 가져와서 쓰면되는거임
+        
+            $(".conWrap div").css("display","none")
+            //$(".conWrap div").hide()
+            $(".conWrap div").eq(i).css("display","block")
+            // $(".conWrap div").eq(i).show()
+        })
+    </script>
+</body>
+</html>
