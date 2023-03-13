@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header class="hd container">
+            <div class="logo"></div>
+            <div class="hMenu">
+                <nav class="nWrap">
+                    <ul>
+                        <li><a href="">단체 여행</a></li>
+                        <li><a href="">맞춤 여행</a></li>
+                        <li><a href="">갤러리</a></li>
+                        <li><a href="">문의하기</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+
+        <!-- visual  -->
+        <div class="visual">
+        </div>
+
+
+        <!-- contents  -->
+        <div class="conWrap container">
+            <div class="tWrap">
+                <ul class="menuWrap">
+                    <li class="notice active">공지사항</li>
+                    <li class="gallery">갤러리</li>
+                </ul>
+            </div>
+
+            <div class="txtWrap">
+                <div>
+                    <ul class = "noWrap">
+                        <li><a href="">홈페이지 업데이트 공지<span>2023-03-10</span></a></li>
+                        <li><a href="">귀여운 반려동물 사진 공지<span>2023-03-01</span></a></li>
+                        <li><a href="">웃긴 동물 사진 공지<span>2023-02-27</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class = "imgWrap">
+                        <li><a href="#"><img src="../images/melong_cat.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="../images/melong_dog.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="../images/melong_fox.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="picWrap">
+                <div class="qWrap">
+                        <img src="../images/rabbit.jpg" alt="">
+                        <div class="txtWrap">
+                            <h3>평화기행</h3>
+                        </div>
+                </div>
+                <div class="qWrap">
+                        <img src="../images/rabbit.jpg" alt="">
+                        <div class="txtWrap">
+                            <h3>힐링 워크샵</h3>
+                        </div>
+                </div>
+                <div class="qWrap">
+                        <img src="../images/rabbit.jpg" alt="">
+                        <div class="txtWrap">
+                            <h3>문의하기</h3>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="ft">
+            <div class="ftWrap container clearfix">
+                <ul>
+                    <li><a href="#">회사 소개 <span>|</span></a></li>
+                    <li><a href="#">개인정보처리방침 <span>|</span></a></li>
+                    <li><a href="#">여행약관 <span>|</span></a></li>
+                    <li><a href="#">사이트맵<br></a></li>
+                </ul>
+                <div class="copyright container clearfix"><br>
+                    부산광역시 해운대구 우동 703-5 해운대해수욕장<br>
+                    Copyright©Netmarble Corp.All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+            
+        $(".tWrap li").click(function(){
+            let i = $(this).index()
+            $(".tWrap li").removeClass("active");
+            $(".tWrap li").eq(i).addClass("active");
+
+        // $(".contents ul").stop().animate({
+        //     "left":-400*i
+        // },1000);
+
+    })
+
+
+    </script>
+</body>
+
+</html>
